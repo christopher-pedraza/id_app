@@ -15,7 +15,6 @@ export default function Quiz() {
     const route = useRoute<RouteProp<{ params: RouteParams }, "params">>();
     const { item } = route.params;
     const navigation = useNavigation();
-    console.log("tempJSON", JSON.parse(tempJSON));
 
     return (
         <View style={styles.container}>

@@ -1,4 +1,4 @@
-import { Button, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View, Text } from "react-native";
 
 type Props = {
     title: string;
@@ -8,7 +8,9 @@ type Props = {
 export default function HomeButton({ title, onPress }: Props) {
     return (
         <View style={styles.container}>
-            <Button title={title} onPress={onPress} />
+            <Pressable onPress={onPress}>
+                <Text>{title}</Text>
+            </Pressable>
         </View>
     );
 }
