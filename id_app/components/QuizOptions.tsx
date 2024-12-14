@@ -39,6 +39,14 @@ export default function QuizOptions({ data }: Props) {
         }
     };
 
+    const handlePreviousPress = () => {
+        if (selectedOptions.length > 0) {
+            const previousOption = selectedOptions[selectedOptions.length - 1];
+            setSelectedOptions(selectedOptions.slice(0, -1));
+            setCurrentOptionId(previousOption.id);
+        }
+    };
+
     return (
         <View>
             {groupedOptions[currentOptionId].map(
@@ -61,6 +69,16 @@ export default function QuizOptions({ data }: Props) {
                         </Pressable>
                     )
             )}
+            <Pressable
+                onPress={handlePreviousPress}
+                disabled={selectedOptions.length === 0}
+                style={[
+                    styles.previousButton,
+                    selectedOptions.length === 0 && styles.disabledButton,
+                ]}
+            >
+                <Text>Previous</Text>
+            </Pressable>
         </View>
     );
 }
@@ -77,5 +95,14 @@ const styles = StyleSheet.create({
         margin: 5,
         backgroundColor: "#add8e6",
         borderRadius: 5,
+    },
+    previousButton: {
+        padding: 10,
+        margin: 5,
+        backgroundColor: "#ffcccb",
+        borderRadius: 5,
+    },
+    disabledButton: {
+        backgroundColor: "#f0f0f0",
     },
 });
