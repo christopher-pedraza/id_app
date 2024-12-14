@@ -1,5 +1,5 @@
 import { FlashList } from "@shopify/flash-list";
-import { Text, Button } from "react-native";
+import { Text, Pressable } from "react-native";
 import {
     createStaticNavigation,
     useNavigation,
@@ -27,10 +27,11 @@ export default function ItemList() {
             data={DATA}
             renderItem={({ item }: { item: Item }) => {
                 return (
-                    <Button
-                        title={item.title}
+                    <Pressable
                         onPress={() => navigation.navigate("Quiz", { item })}
-                    />
+                    >
+                        <Text>{item.title}</Text>
+                    </Pressable>
                 );
             }}
             estimatedItemSize={200}

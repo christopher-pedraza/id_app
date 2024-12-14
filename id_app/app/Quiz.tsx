@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -20,14 +20,14 @@ export default function Quiz() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => {
                         navigation.goBack();
                     }}
                     style={styles.backButton}
                 >
                     <Text>Back</Text>
-                </TouchableOpacity>
+                </Pressable>
                 <Text>{item.title}</Text>
             </View>
             <Text>{tempJSON}</Text>
