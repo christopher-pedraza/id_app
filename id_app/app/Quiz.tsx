@@ -2,6 +2,9 @@ import { Text, View, StyleSheet, Pressable } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
+// components
+import QuizOptions from "@/components/QuizOptions";
+
 // Define the type for the route parameters
 type RouteParams = {
     item: {
@@ -29,7 +32,7 @@ export default function Quiz() {
                 </Pressable>
                 <Text>{item.title}</Text>
             </View>
-            <Text>{tempJSON}</Text>
+            <QuizOptions data={tempJSON} />
         </View>
     );
 }
