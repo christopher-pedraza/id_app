@@ -1,4 +1,4 @@
-import { View, Pressable, Text, StyleSheet } from "react-native";
+import { View, Pressable, Text, StyleSheet, Image } from "react-native";
 import { useState } from "react";
 
 type Props = {
@@ -13,6 +13,7 @@ interface Option {
     prev?: string | null;
     result?: string | null;
     info?: string | null;
+    img?: string | null;
 }
 
 export default function QuizOptions({ data }: Props) {
@@ -57,6 +58,12 @@ export default function QuizOptions({ data }: Props) {
                             onPress={() => handleOptionPress(option)}
                             style={styles.optionPressable}
                         >
+                            {option.img && (
+                                <Image
+                                    source={{ uri: option.img }}
+                                    style={styles.image}
+                                />
+                            )}
                             <Text>{option.option}</Text>
                         </Pressable>
                     ) : (
@@ -65,6 +72,12 @@ export default function QuizOptions({ data }: Props) {
                             onPress={() => handleOptionPress(option)}
                             style={styles.resultPressable}
                         >
+                            {option.img && (
+                                <Image
+                                    source={{ uri: option.img }}
+                                    style={styles.image}
+                                />
+                            )}
                             <Text>{option.result}</Text>
                         </Pressable>
                     )
@@ -89,20 +102,28 @@ const styles = StyleSheet.create({
         margin: 5,
         backgroundColor: "#d3d3d3",
         borderRadius: 5,
+        alignItems: "center",
     },
     resultPressable: {
         padding: 10,
         margin: 5,
         backgroundColor: "#add8e6",
         borderRadius: 5,
+        alignItems: "center",
     },
     previousButton: {
         padding: 10,
         margin: 5,
         backgroundColor: "#ffcccb",
         borderRadius: 5,
+        alignItems: "center",
     },
     disabledButton: {
         backgroundColor: "#f0f0f0",
+    },
+    image: {
+        width: 100,
+        height: 100,
+        marginBottom: 10,
     },
 });
