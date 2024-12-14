@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Button } from "react-native";
 
 // components
-import HomeButton from "../components/HomeButton";
+import HomeButton from "@/components/HomeButton";
 
 export default function Index() {
     return (
